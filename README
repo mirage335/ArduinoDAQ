@@ -1,0 +1,44 @@
+Copyright (C) 2013 mirage335
+See the end of the file for license conditions.
+See license.txt for USB_DAQ license conditions.
+
+__Usage__
+High-precision, low sample rate (<3kHz), DC coupled USB analog converter. Essentially a "sound card" suitable for biosignal applications (EEG), digital radios, optical sensors, hobby electronics, and other high dynamic range measurements.
+
+BNC Connector accepts +/-8Vin. USB outputs the value according to a sample rate and format specified in firmware, by default, 100Hz @ S32_LE. LED indicator idenfities healthy startup and input overload.
+
+__Firmware__
+In the arduino IDE, set Tools --> Board --> Arduino Leonardo . Using an AVR programmer (eg. https://www.sparkfun.com/products/9825 ), either upload the leonardo bootloader or the sketch. Uploading the bootloader allows programming and serial debugging directly over USB.
+
+__Design__
+The LTC2440's input range includes floating voltages from 0.5*Vcc to -0.5Vcc. However, ESD protection circuitry rejects inputs referenced to, and below, other grounds on the chip. Carefully designed low-noise biasing circuitry negates this problem.
+
+Board layout is critical. Neighboring digital cirucits introudce high-amplitude high-frequency noise, which is then subject to stray rectification in analog circuits. Further, the LTC2440's switched capacitor inputs introduce high frequency noise, requiring immediate decoupling.
+
+Firmware includes code for sharp, highly efficient IIR low pass filtering. High-frequency noise may be greatly reduced with little effect on the passband.
+
+USA companies provide all parts in these schematics.
+
+__Safety__
+USB ports are typically unfused (despite specifications to the contrary). Better to preform smoke testing with a USB wall charger, rather than an expensive computer.
+
+Device does not offer line isolation.
+
+_Testing_
+This particular version improves noise problems encountered with the previous version. A previous version was operational, 
+
+__Copyright__
+This file is part of USB_DAQ.
+
+USB_DAQ is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+USB_DAQ is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with USB_DAQ.  If not, see <http://www.gnu.org/licenses/>.
