@@ -5,8 +5,8 @@ FileVersion[20091103]
 
 PCB["" 6000.00mil 5000.00mil]
 
-Grid[500.000000 0.0000 0.0000 1]
-Cursor[3690.00mil 3620.00mil 0.000000]
+Grid[2500.000000 0.0000 0.0000 1]
+Cursor[875.00mil 4850.00mil 0.000000]
 PolyArea[200000000.000000]
 Thermal[0.500000]
 DRC[6.00mil 10.00mil 6.00mil 10.00mil 13.00mil 7.00mil]
@@ -787,7 +787,7 @@ Symbol['~' 12.00mil]
 	SymbolLine[20.00mil 35.00mil 25.00mil 30.00mil 8.00mil]
 )
 Attribute("PCB::grid::unit" "mil")
-Attribute("PCB::grid::size" "5.00mil")
+Attribute("PCB::grid::size" "25.00mil")
 Via[35.2260mm 107.2774mm 60.00mil 20.00mil 0.0000 35.00mil "" ""]
 Via[1470.00mil 4151.00mil 60.00mil 20.00mil 0.0000 35.00mil "" ""]
 Via[880.00mil 4122.90mil 60.00mil 20.00mil 0.0000 35.00mil "" ""]
@@ -963,7 +963,7 @@ Element["" "0402" "D1" "-" 34.6898mm 3900.00mil -31.50mil -31.50mil 0 100 ""]
 
 	)
 
-Element["found" "1206" "C13" "4.7u" 1525.00mil 95.4799mm -31.50mil 31.50mil 1 100 ""]
+Element["" "1206" "C13" "4.7u" 1525.00mil 95.4799mm -31.50mil 31.50mil 1 100 ""]
 (
 	Attribute("device" "CAPACITOR")
 	Attribute("manufacturer" "unknown")
@@ -1575,6 +1575,20 @@ Element["" "0805" "R11" "5k" 70.7280mm 3775.00mil -31.50mil -31.50mil 0 100 ""]
 	ElementLine [-3.93mil 27.55mil 3.93mil 27.55mil 8.00mil]
 
 	)
+
+Element["" "1206" "R17" "10k" 665.95mil 4675.00mil 31.50mil 31.50mil 2 100 ""]
+(
+	Attribute("device" "RESISTOR")
+	Attribute("manufacturer" "unknown")
+	Attribute("manufacturer_part_number" "unknown")
+	Attribute("vendor" "unknown")
+	Attribute("vendor_part_number" "unknown")
+	Pad[59.05mil -11.81mil 59.05mil 11.81mil 51.18mil 20.00mil 57.18mil "1" "1" "square"]
+	Pad[-59.05mil -11.81mil -59.05mil 11.81mil 51.18mil 20.00mil 57.18mil "2" "2" "square"]
+	ElementLine [-23.62mil 37.40mil 23.62mil 37.40mil 8.00mil]
+	ElementLine [-23.62mil -37.40mil 23.62mil -37.40mil 8.00mil]
+
+	)
 Layer(1 "top")
 (
 	Line[520.00mil 3781.00mil 320.00mil 3781.00mil 25.00mil 20.00mil "clearline"]
@@ -2028,6 +2042,13 @@ Layer(1 "top")
 	Line[1526.90mil 3820.00mil 1525.00mil 3818.10mil 25.00mil 20.00mil "clearline"]
 	Line[1426.90mil 3820.00mil 1523.10mil 3820.00mil 25.00mil 20.00mil "clearline"]
 	Line[1523.10mil 3820.00mil 1525.00mil 3818.10mil 25.00mil 20.00mil "clearline"]
+	Line[780.00mil 4561.00mil 780.00mil 4570.00mil 10.00mil 20.00mil "clearline"]
+	Line[780.00mil 4570.00mil 725.00mil 4625.00mil 10.00mil 20.00mil "clearline"]
+	Line[725.00mil 4675.00mil 725.00mil 4625.00mil 10.00mil 20.00mil "clearline"]
+	Line[606.90mil 4675.00mil 606.90mil 117.2997mm 10.00mil 20.00mil "clearline"]
+	Line[606.90mil 117.2997mm 625.00mil 4600.00mil 10.00mil 20.00mil "clearline"]
+	Line[625.00mil 4600.00mil 625.00mil 4516.00mil 10.00mil 20.00mil "clearline"]
+	Line[625.00mil 4516.00mil 680.00mil 4461.00mil 10.00mil 20.00mil "clearline"]
 )
 Layer(2 "bottom")
 (
@@ -2333,6 +2354,7 @@ NetList()
 	Net("unnamed_net12" "(unknown)")
 	(
 		Connect("CONN2-3")
+		Connect("R17-2")
 		Connect("U1-9")
 		Connect("U5-13")
 	)
@@ -2448,6 +2470,7 @@ NetList()
 		Connect("CONN2-2")
 		Connect("R6-1")
 		Connect("R16-2")
+		Connect("R17-1")
 		Connect("U1-2")
 		Connect("U1-7")
 		Connect("U1-14")
